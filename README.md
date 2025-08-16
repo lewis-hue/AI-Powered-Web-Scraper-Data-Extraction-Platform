@@ -81,26 +81,28 @@ The data extraction process follows a multi-stage pipeline:
     end
 ---
 
-API and Endpoints
+### API and Endpoints
 
 The application exposes a set of RESTful API endpoints for managing scraping and export jobs:
 
-Endpoint	Method	Description
+#### Endpoint	Method	Description
+---
 /scrape	POST	Initiates a new scraping job.
 /status/<job_id>	GET	Retrieves the status of a scraping job.
 /export/<job_id>	POST	Creates a request to export data.
 /export-status/<export_job_id>	GET	Checks the status of an export job.
 /download/<export_job_id>	GET	Downloads the exported file.
-Scalability and Performance
+---
+### Scalability and Performance
 
 The application is designed for scalability through asynchronous processing, horizontal scaling of the Flask application, and the use of a scalable MongoDB database. Future enhancements could include a distributed task queue system like Celery for even greater performance.
 
-Deployment and Monetization
-Deployment Strategy
+### Deployment and Monetization
+#### Deployment Strategy
 
 The application is designed for modern cloud deployment using:
 
-Docker containers
+**Docker containers**
 
 Managed cloud hosting services (AWS, GCP, Heroku)
 
@@ -108,10 +110,10 @@ A managed database service (MongoDB Atlas)
 
 A CI/CD pipeline for automated deployments.
 
-Monetization Model
+### Monetization Model
 
 A freemium subscription model is proposed:
 
-Free tier: Basic features and limited usage.
+**Free tier:** Basic features and limited usage.
 
-Premium tiers: Pro and Business versions offering higher limits, advanced features like API access, and dedicated support.
+**Premium tiers:** Pro and Business versions offering higher limits, advanced features like API access, and dedicated support.
