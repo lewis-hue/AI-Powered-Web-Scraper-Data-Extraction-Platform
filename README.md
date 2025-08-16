@@ -81,7 +81,7 @@ The data extraction process follows a multi-stage pipeline:
     end
 ---
 
-# API and Endpoints
+## API and Endpoints
 
 The application provides a set of RESTful API endpoints to manage scraping and export jobs.
 
@@ -97,7 +97,7 @@ The application provides a set of RESTful API endpoints to manage scraping and e
 
 ---
 
-# Scalability and Performance
+## Scalability and Performance
 
 The application is designed with scalability in mind, featuring:
 
@@ -109,9 +109,9 @@ Future enhancements may include integrating a distributed task queue system, suc
 
 ---
 
-# Deployment and Monetization
+## Deployment and Monetization
 
-## Deployment Strategy
+### Deployment Strategy
 
 The application follows a modern cloud deployment strategy utilizing:
 
@@ -120,7 +120,7 @@ The application follows a modern cloud deployment strategy utilizing:
 - **MongoDB Atlas** as a fully-managed database solution.
 - A **CI/CD pipeline** for automated, continuous deployment.
 
-## Monetization Model
+### Monetization Model
 
 A **freemium subscription model** is proposed for monetization:
 
