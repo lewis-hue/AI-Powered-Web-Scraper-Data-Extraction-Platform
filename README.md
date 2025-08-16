@@ -81,39 +81,50 @@ The data extraction process follows a multi-stage pipeline:
     end
 ---
 
-### API and Endpoints
+# API and Endpoints
 
-The application exposes a set of RESTful API endpoints for managing scraping and export jobs:
+The application provides a set of RESTful API endpoints to manage scraping and export jobs.
 
-#### Endpoint	Method	Description
+## Available Endpoints
+
+| Endpoint                          | Method | Description                                               |
+| ---------------------------------- | ------ | --------------------------------------------------------- |
+| `/scrape`                          | POST   | Initiates a new scraping job.                             |
+| `/status/<job_id>`                 | GET    | Retrieves the status of a specific scraping job.          |
+| `/export/<job_id>`                 | POST   | Creates a request to export data from a specific job.     |
+| `/export-status/<export_job_id>`   | GET    | Checks the status of an export job.                       |
+| `/download/<export_job_id>`        | GET    | Downloads the exported file associated with the export job.|
+
 ---
-/scrape	POST	Initiates a new scraping job.
-/status/<job_id>	GET	Retrieves the status of a scraping job.
-/export/<job_id>	POST	Creates a request to export data.
-/export-status/<export_job_id>	GET	Checks the status of an export job.
-/download/<export_job_id>	GET	Downloads the exported file.
+
+# Scalability and Performance
+
+The application is designed with scalability in mind, featuring:
+
+- **Asynchronous processing** to handle multiple tasks concurrently.
+- **Horizontal scaling** of the Flask application to manage increased traffic.
+- A **scalable MongoDB database** to ensure efficient data handling.
+
+Future enhancements may include integrating a distributed task queue system, such as **Celery**, for improved performance and task management.
+
 ---
-### Scalability and Performance
 
-The application is designed for scalability through asynchronous processing, horizontal scaling of the Flask application, and the use of a scalable MongoDB database. Future enhancements could include a distributed task queue system like Celery for even greater performance.
+# Deployment and Monetization
 
-### Deployment and Monetization
-#### Deployment Strategy
+## Deployment Strategy
 
-The application is designed for modern cloud deployment using:
+The application follows a modern cloud deployment strategy utilizing:
 
-**Docker containers**
+- **Docker containers** for seamless environment setup and portability.
+- **Managed cloud hosting services** (e.g., AWS, GCP, Heroku) for robust cloud infrastructure.
+- **MongoDB Atlas** as a fully-managed database solution.
+- A **CI/CD pipeline** for automated, continuous deployment.
 
-Managed cloud hosting services (AWS, GCP, Heroku)
+## Monetization Model
 
-A managed database service (MongoDB Atlas)
+A **freemium subscription model** is proposed for monetization:
 
-A CI/CD pipeline for automated deployments.
-
-### Monetization Model
-
-A freemium subscription model is proposed:
-
-**Free tier:** Basic features and limited usage.
-
-**Premium tiers:** Pro and Business versions offering higher limits, advanced features like API access, and dedicated support.
+- **Free tier**: Provides basic features with limited usage.
+- **Premium tiers**:
+  - **Pro**: Offers higher limits, advanced features, and API access.
+  - **Business**: Includes all Pro features, with added benefits like dedicated support.
