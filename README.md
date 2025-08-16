@@ -1,4 +1,4 @@
-# Enhanced AI Web Scraper Pro
+# AI-Powered Web Scraper and Data Extraction Platform
 
 <p align="center">
   <img src="https://img.shields.io/badge/Stack-AI%20%7C%20Web%20Scraping%20%7C%20Data%20Extraction-007bff?style=for-the-badge&logo=github&logoColor=white" alt="Tech Stack Badge" />
@@ -69,6 +69,8 @@ flowchart TD
     C --> I(🚧 Error Handling & Retries)
     F --> I
     G --> I
+```mermaid
+
 API and Endpoints
 
 The application exposes a set of RESTful API endpoints for managing scraping and export jobs:
