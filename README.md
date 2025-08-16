@@ -69,7 +69,8 @@ flowchart TD
     C --> I(🚧 Error Handling & Retries)
     F --> I
     G --> I
-```mermaid
+```
+---
 
 API and Endpoints
 
