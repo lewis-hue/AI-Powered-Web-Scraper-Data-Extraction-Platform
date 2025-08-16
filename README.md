@@ -57,25 +57,26 @@ The **Enhanced AI Web Scraper Pro** is a sophisticated, enterprise-grade web scr
 
 The data extraction process follows a multi-stage pipeline:
 
-flowchart TD
-    subgraph Stage 1: User Submission & Job Initiation
+#### flowchart TD
+---
+    Stage 1: User Submission & Job Initiation
     A[👤 User Submits URL]
     B[💡 Job Initiation: 'pending']
     end
 
-    subgraph Stage 2: Web Scraping & HTML Processing
+    Stage 2: Web Scraping & HTML Processing
     C{🌐 Background Thread<br/>(Playwright)}
     D[📝 Raw HTML Extraction]
     E[🧹 HTML-to-Markdown Cleaning]
     end
 
-    subgraph Stage 3: Data Validation & Job Completion
+    Stage 3: Data Validation & Job Completion
     F{🧠 OpenAI API<br/>(Structured Data Extraction)}
     G[📦 Data Validation & Storage<br/>(MongoDB)]
     H[✅ Job Status: 'completed']
     end
     
-    subgraph Stage 4: Error Handling
+    Stage 4: Error Handling
     I[🚧 Error Handling & Retries]
     end
 ---
