@@ -57,19 +57,49 @@ The **Enhanced AI Web Scraper Pro** is a sophisticated, enterprise-grade web scr
 
 The data extraction process follows a multi-stage pipeline:
 
-```mermaid
 flowchart TD
-    A[👤 User Submits URL] --> B(💡 Job Initiation: 'pending')
+    %% User submits URL and initiates the job
+    A[👤 User Submits URL] --> B[💡 Job Initiation: 'pending']
+    
+    %% Background thread starts the scraping process
     B --> C{🌐 Background Thread<br/>(Playwright)}
     C --> D[📝 Raw HTML Extraction]
+
+    %% HTML content is cleaned for processing
     D --> E[🧹 HTML-to-Markdown Cleaning]
+
+    %% AI model processes cleaned HTML for structured data
     E --> F{🧠 OpenAI API<br/>(Structured Data Extraction)}
-    F --> G(📦 Data Validation & Storage<br/>(MongoDB))
+    
+    %% Validation and storage process
+    F --> G[📦 Data Validation & Storage<br/>(MongoDB)]
     G --> H[✅ Job Status: 'completed']
-    C --> I(🚧 Error Handling & Retries)
+
+    %% Error handling is in place at critical stages
+    C --> I[🚧 Error Handling & Retries]
     F --> I
     G --> I
-```
+    
+    %% Styling for nodes and arrows for better readability
+    classDef startEnd fill:#ffeb3b,stroke:#fbc02d,stroke-width:2px;
+    classDef process fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px;
+    classDef decision fill:#ffecb3,stroke:#fbc02d,stroke-width:2px;
+    classDef storage fill:#d1c4e9,stroke:#512da8,stroke-width:2px;
+    
+    class A,B startEnd;
+    class C,D,E process;
+    class F decision;
+    class G,H storage;
+    class I process;
+    
+    %% Label for flow
+    A -.->|Submits URL| B
+    C -.->|Playwright Processing| D
+    D -.->|Clean HTML| E
+    E -.->|Processed by OpenAI| F
+    F -.->|Store in MongoDB| G
+    G -.->|Job Completion| H
+
 ---
 
 API and Endpoints
