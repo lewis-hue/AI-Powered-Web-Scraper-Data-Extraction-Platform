@@ -57,48 +57,64 @@ The **Enhanced AI Web Scraper Pro** is a sophisticated, enterprise-grade web scr
 
 The data extraction process follows a multi-stage pipeline:
 
+```mermaid
 flowchart TD
-    %% User submits URL and initiates the job
-    A[👤 User Submits URL] --> B[💡 Job Initiation: 'pending']
-    
-    %% Background thread starts the scraping process
-    B --> C{🌐 Background Thread<br/>(Playwright)}
-    C --> D[📝 Raw HTML Extraction]
+%% User submits URL and initiates the job
+A[👤 User Submits URL] --> B[💡 Job Initiation: 'pending']
 
-    %% HTML content is cleaned for processing
-    D --> E[🧹 HTML-to-Markdown Cleaning]
+%% Background thread starts the scraping process
+B --\> C{🌐 Background Thread<br/>(Playwright)}
+C --\> D\[📝 Raw HTML Extraction]
 
-    %% AI model processes cleaned HTML for structured data
-    E --> F{🧠 OpenAI API<br/>(Structured Data Extraction)}
-    
-    %% Validation and storage process
-    F --> G[📦 Data Validation & Storage<br/>(MongoDB)]
-    G --> H[✅ Job Status: 'completed']
+%% HTML content is cleaned for processing
+D --\> E\[🧹 HTML-to-Markdown Cleaning]
 
-    %% Error handling is in place at critical stages
-    C --> I[🚧 Error Handling & Retries]
-    F --> I
-    G --> I
-    
-    %% Styling for nodes and arrows for better readability
-    classDef startEnd fill:#ffeb3b,stroke:#fbc02d,stroke-width:2px;
-    classDef process fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px;
-    classDef decision fill:#ffecb3,stroke:#fbc02d,stroke-width:2px;
-    classDef storage fill:#d1c4e9,stroke:#512da8,stroke-width:2px;
-    
-    class A,B startEnd;
-    class C,D,E process;
-    class F decision;
-    class G,H storage;
-    class I process;
-    
-    %% Label for flow
-    A -.->|Submits URL| B
-    C -.->|Playwright Processing| D
-    D -.->|Clean HTML| E
-    E -.->|Processed by OpenAI| F
-    F -.->|Store in MongoDB| G
-    G -.->|Job Completion| H
+%% AI model processes cleaned HTML for structured data
+E --\> F{🧠 OpenAI API<br/>(Structured Data Extraction)}
+
+%% Validation and storage process
+F --\> G\[📦 Data Validation & Storage<br/>(MongoDB)]
+G --\> H\[✅ Job Status: 'completed']
+
+%% Error handling is in place at critical stages
+C --\> I\[🚧 Error Handling & Retries]
+F --\> I
+G --\> I
+
+%% Styling for nodes and arrows for better readability
+classDef startEnd fill:#ffeb3b,stroke:#fbc02d,stroke-width:2px;
+classDef process fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px;
+classDef decision fill:#ffecb3,stroke:#fbc02d,stroke-width:2px;
+classDef storage fill:#d1c4e9,stroke:#512da8,stroke-width:2px;
+
+class A,B startEnd;
+class C,D,E process;
+class F decision;
+class G,H storage;
+class I process;
+
+%% Label for flow
+style A fill:#ffeb3b,stroke:#fbc02d,stroke-width:2px
+style B fill:#ffeb3b,stroke:#fbc02d,stroke-width:2px
+style C fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px
+style D fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px
+style E fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px
+style F fill:#ffecb3,stroke:#fbc02d,stroke-width:2px
+style G fill:#d1c4e9,stroke:#512da8,stroke-width:2px
+style H fill:#d1c4e9,stroke:#512da8,stroke-width:2px
+style I fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px
+
+A -- Submits URL --> B
+B -- Starts Processing --> C
+C -- Playwright Extraction --> D
+D -- Clean HTML --> E
+E -- Process with AI --> F
+F -- Validate and Store --> G
+G -- Mark as Complete --> H
+C -- Handles Errors --> I
+F -- Handles Errors --> I
+G -- Handles Errors --> I
+```
 
 ---
 
